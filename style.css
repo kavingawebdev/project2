@@ -1,0 +1,579 @@
+:root {
+    --bg-color: #0a0a0a;
+    --surface-color: #121212;
+    --text-primary: #f0f0f0;
+    --text-secondary: #888;
+    --accent-color: #00ff41;
+    /* Joker Green */
+    --font-heading: 'Oswald', sans-serif;
+    /* Switched to Oswald */
+    --font-secondary: 'Teko', sans-serif;
+    /* Added Teko for more tech feel if needed */
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Grain Overlay */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.05;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 100vh;
+    background-color: #000;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+    letter-spacing: 0.2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+.nav-links a {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transition: 0.3s;
+    position: relative;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+.sidebar-footer {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+}
+
+/* Main Content Shift */
+main {
+    margin-left: 80px;
+}
+
+/* Hero Split Section */
+.split-section {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.hero-left {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5% 0 10%;
+    /* Increased left padding for hero text */
+    position: relative;
+    z-index: 2;
+}
+
+.hero-right {
+    width: 40%;
+    height: 100%;
+    position: relative;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-bg {
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(1.3) brightness(0.6);
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 10vw;
+    line-height: 0.9;
+    /* slightly increased line height */
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 4rem;
+    /* Increased margin */
+    padding-left: 3rem;
+    /* Increased left padding */
+    padding-right: 3rem;
+    letter-spacing: 2px;
+    /* Added letter spacing */
+}
+
+.hero-title .line {
+    display: block;
+}
+
+.hero-title .line:nth-child(2) {
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    margin-left: 5rem;
+    /* Indent effect */
+}
+
+.subtitle {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    letter-spacing: 0.3rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.role {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    color: var(--text-secondary);
+}
+
+.accent {
+    color: var(--accent-color);
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 3rem;
+    padding: 1rem 3rem;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+    background: transparent;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+/* About Split */
+.split-section.reverse {
+    flex-direction: row;
+}
+
+.about-left {
+    width: 40%;
+    position: relative;
+}
+
+.about-right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+}
+
+.about-left .section-bg {
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(1.2);
+}
+
+/* Container for standard sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.section-number {
+    font-family: var(--font-heading);
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    top: -2rem;
+    /* Pull up slightly */
+    left: 2rem;
+    z-index: 0;
+    /* Fix z-index issue so it's visible but behind text */
+    line-height: 1;
+    pointer-events: none;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* About Text */
+.content-wrapper .lead {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.content-wrapper .description {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Project List - keeping existing list style but refined */
+section#work {
+    padding: 10rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto auto;
+    /* Fix grid columns to prevent overlap */
+    align-items: center;
+    padding: 3rem 2rem;
+    /* Add horizontal padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    gap: 1rem;
+}
+
+.project-item:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.project-item:hover {
+    background-color: rgba(0, 255, 65, 0.05);
+    /* Slight green tint */
+    padding-left: 2rem;
+}
+
+.project-id {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.project-name {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    transition: color 0.3s;
+}
+
+.project-item:hover .project-name {
+    color: #fff;
+}
+
+.project-tags {
+    color: var(--text-secondary);
+    text-align: right;
+    padding-right: 2rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.project-link {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.9rem;
+    text-align: right;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s;
+}
+
+.project-item:hover .project-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Contact */
+section#contact {
+    padding: 10rem 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contact-text {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+}
+
+.email-link {
+    font-family: var(--font-heading);
+    font-size: 6vw;
+    color: var(--text-primary);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 4rem;
+    transition: 0.3s;
+}
+
+.email-link:hover {
+    color: var(--accent-color);
+    transform: scale(1.02);
+}
+
+.social-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Custom Cursor */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+.cursor-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-color);
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--accent-color);
+    opacity: 0.5;
+    transition: width 0.2s, height 0.2s;
+}
+
+/* Animation Classes */
+.in-view {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .split-section,
+    .split-section.reverse {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .hero-left,
+    .hero-right,
+    .about-left,
+    .about-right {
+        width: 100%;
+    }
+
+    .hero-left {
+        min-height: 80vh;
+        padding-top: 100px;
+        /* Space for top bar if needed */
+    }
+
+    .hero-right {
+        height: 50vh;
+    }
+
+    .hero-title {
+        font-size: 12vw;
+        /* Reduced from 15vw to prevent overflow */
+        padding-left: 0;
+        /* Reset padding for mobile */
+        padding-right: 0;
+    }
+
+    .hero-title .line:nth-child(2) {
+        margin-left: 0;
+        /* Remove indent on mobile to fit screen */
+    }
+
+    .hero-image-container {
+        clip-path: none;
+    }
+
+    .about-left {
+        height: 50vh;
+    }
+
+    .about-right {
+        padding: 4rem 5%;
+    }
+
+    .sidebar {
+        display: none;
+        /* Hide sidebar on mobile */
+    }
+
+    /* Add mobile header styles if needed, or rely on previous hamburger */
+    main {
+        margin-left: 0;
+    }
+
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 200;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 2px;
+        margin: 5px auto;
+        background-color: var(--text-primary);
+        transition: 0.3s;
+    }
+
+    .nav-links {
+        /* Mobile menu styles */
+        display: none;
+        /* Just simple hide for now until toggle */
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        top: 0;
+        left: 0;
+        z-index: 150;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        writing-mode: horizontal-tb;
+        transform: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+
+
+    .project-item {
+        grid-template-columns: 1fr;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .project-tags,
+    .project-link {
+        text-align: left;
+    }
+}
