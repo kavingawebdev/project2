@@ -75,7 +75,8 @@ body {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
+    /* Reduced width/gap for vertical layout */
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 }
@@ -247,6 +248,15 @@ main {
 }
 
 /* Container for standard sections */
+section {
+    padding: 10rem 5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -258,7 +268,8 @@ main {
     font-size: 10rem;
     color: rgba(255, 255, 255, 0.05);
     position: absolute;
-    top: -2rem;
+    top: 0;
+    /* Align with top edge to prevent clipping */
     /* Pull up slightly */
     left: 2rem;
     z-index: 0;
