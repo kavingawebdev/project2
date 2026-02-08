@@ -53,7 +53,8 @@ body {
     height: 100vh;
     background-color: #000;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 100;
+    z-index: 1000;
+    /* Ensure this is above all content */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,6 +113,8 @@ main {
 /* Hero Split Section */
 .split-section {
     display: flex;
+    flex-direction: row;
+    /* Force row layout to override generic section col */
     height: 100vh;
     position: relative;
     overflow: hidden;
@@ -133,7 +136,10 @@ main {
 .hero-right {
     width: 40%;
     height: 100%;
+    /* Ensure full height */
     position: relative;
+    display: block;
+    /* Ensure block display */
 }
 
 .hero-image-container {
